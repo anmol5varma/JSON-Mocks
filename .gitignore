@@ -1,2 +1,10 @@
+## CODE FILES ##
 node_modules
 .env
+
+## Mac Files ##
+.DS_Store
+**/.DS_Store
+
+## IDE FILES ##
+.vscode
