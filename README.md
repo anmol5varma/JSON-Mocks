@@ -7,7 +7,7 @@
         "message": "Hello World"
     }
     ```
-    will create an endpoint */health* and return the content in API response.
+    will create an endpoint */hello* and return the content in API response.
 - You can also create nested sub-directories inside `mocks` to generate a nested route
 
     #### Example:
@@ -40,8 +40,42 @@
 ## ENV Variables
 
 - PORT : port at which the node server will run. If not specified the server will run at port 8080
-- SERVICE_NAME : service prefix of path at which the files will be exposed.
+- SERVICE_NAME : service prefix of path at which the files will be exposed. Default value is empty string.  
+    **Usecase**  
+    If you want to generate the following routes
+    ```
+    GET /user-service/students/teams/alpha
+    GET /user-service/students/teams/beta
+    POST /user-service/students/teams/teams
+    GET /user-service/users/new
+    GET /user-service/users/old
+    ```
+    i.e. prefix `user-service` to all the end points. Then you can set the value of `SERVICE_NAME` variable to `user-service` and have the following folder structure:
+    ```
+    mocks
+    ├── students
+    │   └── teams
+    │       ├── alpha.json
+    │       ├── beta.json
+    │       └── post:teams.json
+    └── users
+        ├── new.json
+        └── old.json
+    ```
 
 ## Development
 - Clone the repository and run `npm install`.
+- Place the mock response JSONs with appropiate filenames inside the *mocks* folder.
 - Run `npm start` to start the server at the specified port. Hit the `/ping` route to check the health of the server.
+- Check server logs to get list of all the generated endpoints and any incoming requests.  
+    ### Sample logs
+    > Adding route:  GET /user-service/ping  
+    > Adding route:  GET /user-service/students/teams/alpha  
+    > Adding route:  GET /user-service/students/teams/beta  
+    > Adding route:  POST /user-service/students/teams/teams  
+    > Adding route:  GET /user-service/users/new  
+    > Adding route:  GET /user-service/users/old  
+    > Server is running on PORT 8080  
+    > ::1 - GET /user-service/ping HTTP/1.1 200 18 - 4.575 ms  
+    > ::1 - GET /user-service/users/old HTTP/1.1 200 62 - 1.624 ms
+
