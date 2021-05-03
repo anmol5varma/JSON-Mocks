@@ -1,19 +1,13 @@
 {
-  "name": "todo",
+  "name": "mock-api",
   "version": "1.1.0",
-  "description": "",
+  "description": "Being a part of front-end and back-end development teams, many a times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon index.js",
     "start": "node index.js"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "coveragePathIgnorePatterns": [
-      "/node_modules/"
-    ]
-  },
-  "keywords": [],
+  "keywords": ["mock", "api", "mock server"],
   "author": "",
   "license": "ISC",
   "dependencies": {
