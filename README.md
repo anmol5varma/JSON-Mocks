@@ -4,13 +4,13 @@
 
 Being a part of front-end and back-end development teams, many a times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.
 ## Usage
-- Create a JSON file with the name of the endpoint in **mocks** folder. Place the mock response content in the file. Example creating the a file with the name *hello.json* with the content
+- Create a JSON file with the name of the endpoint in **`mocks`** folder. Place the mock response content in the file. Example creating the a file with the name *`hello.json`* with the content
     ```
     {
         "message": "Hello World"
     }
     ```
-    will create an endpoint */hello* and return the content in API response.
+    will create an endpoint *`/hello`* and return the content in API response.
 - You can also create nested sub-directories inside `mocks` to generate a nested route
 
     #### Example:
@@ -38,19 +38,13 @@ Being a part of front-end and back-end development teams, many a times the back-
     Adding route:  GET /users/old
     ```
     
-- Start the server and you should be good to go.  
-    > You can run the server locally or use docker.
-    - #### Docker
-        1. Run `docker build . -t mock-api` to build the docker image.
-        2. Run `docker run -p 8080:8080 -d mock-api` to run the container at `8080` port.
-    - #### Locally
-        1. Run `npm install` to install all the dependencies.
-        2. Run `npm start` to start the server at `8080` or the specified port in env variables.
+- Run `npx json-mocks` to start the server.
+> ***WARNING: Ensure that the command `npx json-mocks` at the same level where the `mocks` folder is created. DO NOT RUN IT INSIDE THE `mocks` FOLDER.***
 
 ## ENV Variables
 
-- PORT : port at which the node server will run. If not specified the server will run at port 8080
-- SERVICE_NAME : service prefix of path at which the files will be exposed. Default value is empty string.  
+- **PORT:** Port at which the node server will run. If not specified the server will run at port 8080
+- **SERVICE_NAME:** Service prefix of path at which the files will be exposed. Default value is empty string.  
     #### Usecase  
     If you want to generate the following routes
     ```
@@ -74,9 +68,15 @@ Being a part of front-end and back-end development teams, many a times the back-
     ```
 
 ## Development
-- Clone the repository and run `npm install`.
-- Place the mock response JSONs with appropiate filenames inside the *mocks* folder.
-- Run `npm start` to start the server at the specified port. Hit the `/ping` route to check the health of the server.
+- Start the server and you should be good to go.  
+    > You can run the server locally or use docker.
+    - #### Docker
+        1. Run `docker build . -t mock-api` to build the docker image.
+        2. Run `docker run -p 8080:8080 -d mock-api` to run the container at `8080` port.
+    - #### Locally
+        1. Clone the repository and run `npm install`.
+        1. Place the mock response JSONs with appropiate filenames inside the *mocks* folder.
+        2. Run `npm start` to start the server at `8080` or the specified port in env variables. Hit the `/ping` route to check the health of the server.  
 - Check server logs to get list of all the generated endpoints and any incoming requests. We use [`morgan`]('https://github.com/expressjs/morgan') to log all the incoming requests.  
     #### Sample logs
     ```
