@@ -74,7 +74,7 @@
 - Clone the repository and run `npm install`.
 - Place the mock response JSONs with appropiate filenames inside the *mocks* folder.
 - Run `npm start` to start the server at the specified port. Hit the `/ping` route to check the health of the server.
-- Check server logs to get list of all the generated endpoints and any incoming requests.  
+- Check server logs to get list of all the generated endpoints and any incoming requests. We use [`morgan`]('https://github.com/expressjs/morgan') to log all the incoming requests.  
     #### Sample logs
     ```
     Adding route:  GET /user-service/ping  
