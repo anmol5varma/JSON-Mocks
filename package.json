@@ -1,13 +1,13 @@
 {
-  "name": "mock-api",
-  "version": "1.1.0",
-  "description": "Being a part of front-end and back-end development teams, many a times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.",
+  "name": "json-mocks",
+  "version": "1.1.1",
+  "description": "Get a full fake REST API with zero coding in less than 10 seconds.",
   "main": "index.js",
   "bin": "./index.js",
-  "homepage": "https://github.com/anmol5varma/Mock-API",
-  "repository": "https://github.com/anmol5varma/Mock-API.git",
+  "homepage": "https://github.com/anmol5varma/JSON-Mocks",
+  "repository": "https://github.com/anmol5varma/JSON-Mocks.git",
   "bugs": {
-    "url": "https://github.com/anmol5varma/Mock-API/issues"
+    "url": "https://github.com/anmol5varma/JSON-Mocks/issues"
   },
   "scripts": {
     "dev": "npx nodemon index.js",
@@ -16,7 +16,11 @@
   "keywords": [
     "mock",
     "api",
-    "mock server"
+    "mock server",
+    "rest",
+    "test",
+    "json",
+    "dummy"
   ],
   "author": "anmol5varma",
   "license": "ISC",

@@ -1,5 +1,8 @@
 # Mock API Service
 
+> ### Get a full fake REST API with zero coding in less than 10 seconds.
+
+Being a part of front-end and back-end development teams, many a times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.
 ## Usage
 - Create a JSON file with the name of the endpoint in **mocks** folder. Place the mock response content in the file. Example creating the a file with the name *hello.json* with the content
     ```
