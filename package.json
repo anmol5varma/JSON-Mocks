@@ -7,7 +7,11 @@
     "dev": "npx nodemon index.js",
     "start": "node index.js"
   },
-  "keywords": ["mock", "api", "mock server"],
+  "keywords": [
+    "mock",
+    "api",
+    "mock server"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

@@ -1,0 +1,11 @@
+## CODE FILES ##
+node_modules
+npm-debug.log
+.env
+
+## Mac Files ##
+.DS_Store
+**/.DS_Store
+
+## IDE FILES ##
+.vscode
