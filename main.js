@@ -2,6 +2,7 @@ const express = require('express');
 const config = require('dotenv');
 const path = require('path');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const { getFilePathRecursively, promisifyReadFile } = require('./utils');
 const { DEFAULT_PORT, MOCK_FILE_PATH } = require('./constants/config');
@@ -9,6 +10,7 @@ const { DEFAULT_PORT, MOCK_FILE_PATH } = require('./constants/config');
 config.config();
 
 const app = express();
+app.use(cors());
 app.use(morgan('short'));
 
 const port = process.env.PORT || DEFAULT_PORT;
