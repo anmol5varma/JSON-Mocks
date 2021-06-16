@@ -26,6 +26,11 @@ const init = async () => {
     prefix += filePath;
 
     let [method, filename] = pathAndFilename.split(':');
+
+    if (filename === undefined) {
+      [method, filename] = pathAndFilename.split(' ');
+    }
+
     if (filename === undefined) {
       filename = method;
       method = 'get';
