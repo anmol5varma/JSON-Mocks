@@ -2,9 +2,11 @@
 
 > ### Get a full fake REST API with zero coding in less than 10 seconds.
 
-Being a part of front-end and back-end development teams, many a times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.
+Being a part of front-end and back-end development teams, many times the back-end/third party APIs are just not ready for integration and testing. To get around that, you can simply dump the mock JSON responses here with the required endpoint to get API endpoints up and running.
 ## Usage
-- Create a JSON file with the name of the endpoint in **`mocks`** folder. Place the mock response content in the file. Example creating the a file with the name *`hello.json`* with the content.
+> ***WARNING: An earlier version of the package was using `':'` as a separator. Since `':'` is not a valid filename character in windows, we had to migrate to a more generic separator which is `' '`(space).  
+We do provide backward compatibility, so even if you are using `':'` as a separator, you have nothing to worry about.***
+- Create a JSON file with the name of the endpoint in **`mocks`** folder. Place the mock response content in the file. Example creating a file with the name *`hello.json`* with the content.
     ```
     {
         "message": "Hello World"
@@ -12,15 +14,15 @@ Being a part of front-end and back-end development teams, many a times the back-
     ```
     will create an endpoint *`/hello`* and return the content in API response.
 - You can also create nested sub-directories inside `mocks` to generate a nested route.
-- Naming Convention for the files inside `mocks` folder: **`<HTTP-METHOD><ENDPOINT_NAME>.json`**  
-    By default the http method is assumed to be `GET`.
+- Naming Convention for the files inside `mocks` folder: **`<HTTP-METHOD><SPACE><ENDPOINT_NAME>.json`**  
+    By default, the HTTP method is assumed to be `GET`.
     | Http Method | Endpoint | Filename |
     | --- | --- | --- |
-    | `HTTP-METHOD` | `/endpoint` | `method-in-lower-case:endpoint.json` |
-    | GET | /ping | get:ping.json or ping.json |
-    | POST | /user | post:user.json |
-    | PUT | /user | put:user.json |
-    | DELETE | /user | delete:user.json |
+    | `HTTP-METHOD` | `/endpoint` | `method-in-lower-case endpoint.json` |
+    | GET | /ping | get ping.json or ping.json |
+    | POST | /user | post user.json |
+    | PUT | /user | put user.json |
+    | DELETE | /user | delete user.json |
     #### Example:
     **A directory structure like this generates the following routes**
     ```
@@ -30,7 +32,7 @@ Being a part of front-end and back-end development teams, many a times the back-
     │   └── teams
     │       ├── alpha.json
     │       ├── beta.json
-    │       └── post:teams.json
+    │       └── post teams.json
     └── users
         ├── new.json
         └── old.json
@@ -70,7 +72,7 @@ DO NOT RUN IT INSIDE THE `mocks` FOLDER.***
     │   └── teams
     │       ├── alpha.json
     │       ├── beta.json
-    │       └── post:teams.json
+    │       └── post teams.json
     └── users
         ├── new.json
         └── old.json
@@ -78,7 +80,7 @@ DO NOT RUN IT INSIDE THE `mocks` FOLDER.***
 
 ## Development
 - Clone the repo.  
-Place the mock response JSONs with appropiate filenames inside the `mocks` folder and start the server. You should be good to go.  
+Place the mock response JSONs with appropriate filenames inside the `mocks` folder and start the server. You should be good to go.  
     > You can run the node server locally or use docker.
     - #### Docker
         1. Run `docker build . -t mock-api` to build the docker image.
