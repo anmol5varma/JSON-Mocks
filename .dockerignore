@@ -9,3 +9,8 @@ npm-debug.log
 
 ## IDE FILES ##
 .vscode
+
+## Git files ##
+docs
+README.md
+.gitignore

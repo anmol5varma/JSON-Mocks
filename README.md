@@ -6,6 +6,11 @@ Being a part of front-end and back-end development teams, many times the back-en
 ## Usage
 > ***WARNING: An earlier version of the package was using `':'` as a separator. Since `':'` is not a valid filename character in windows, we had to migrate to a more generic separator which is `' '`(space).  
 We do provide backward compatibility, so even if you are using `':'` as a separator, you have nothing to worry about.***
+
+![How to use](docs/assets/usage.gif)
+
+
+
 - Create a JSON file with the name of the endpoint in **`mocks`** folder. Place the mock response content in the file. Example creating a file with the name *`hello.json`* with the content.
     ```
     {
