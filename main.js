@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const { getFilePathRecursively, promisifyReadFile } = require('./utils');
 const { DEFAULT_PORT, MOCK_FILE_PATH } = require('./constants/config');
+const httpMethods = require('./constants/httpMethods');
 
 config.config();
 
@@ -31,12 +32,13 @@ const init = async () => {
       [method, filename] = pathAndFilename.split(' ');
     }
 
-    if (filename === undefined) {
-      filename = method;
-      method = 'get';
+    if (!httpMethods.includes(method) || filename === undefined) {
+      filename = pathAndFilename;
+      [method] = httpMethods;
     }
 
     method = method.toLowerCase();
+
     const routePath = `${prefix}/${filename}`;
     console.log('\x1b[33m', 'Adding route: ', method.toUpperCase(), routePath);
 
@@ -48,8 +50,12 @@ const init = async () => {
 };
 
 (async () => {
-  await init();
-  app.listen(port, () => {
-    console.log('\x1b[32m', `Server is running on PORT ${port}`);
-  });
+  try {
+    await init();
+    app.listen(port, () => {
+      console.log('\x1b[32m', `Server is running on PORT ${port}`);
+    });
+  } catch (err) {
+    console.log(err.toString());
+  }
 })();

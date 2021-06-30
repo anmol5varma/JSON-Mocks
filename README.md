@@ -54,8 +54,10 @@ We do provide backward compatibility, so even if you are using `':'` as a separa
     ```
     
 - Run `npx json-mocks` to start the server.
-> ***WARNING: Ensure to run the command `npx json-mocks` at the same level where the `mocks` folder is created.  
-DO NOT RUN IT INSIDE THE `mocks` FOLDER.***
+> ***WARNING:***  
+    - Ensure to run the command `npx json-mocks` at the same level where the `mocks` folder is created.  
+    DO NOT RUN IT INSIDE THE `mocks` FOLDER.  
+    - The filenames should be in urlencoded format else the endpoints won't accesible. This essentially means to create an endpoint `/data list` the filename should be `/data%20list`.
 
 ## ENV Variables
 
